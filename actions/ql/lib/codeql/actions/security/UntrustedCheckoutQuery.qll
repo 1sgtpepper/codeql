@@ -259,7 +259,7 @@ class ActionsMutableRefCheckout extends MutableRefCheckoutStep instanceof UsesSt
 
   override string getPath() {
     if exists(this.(UsesStep).getArgument("path"))
-    then result = this.(UsesStep).getArgument("path")
+    then result = normalizePath(this.(UsesStep).getArgument("path"))
     else result = "GITHUB_WORKSPACE/"
   }
 }
@@ -294,7 +294,7 @@ class ActionsSHACheckout extends SHACheckoutStep instanceof UsesStep {
 
   override string getPath() {
     if exists(this.(UsesStep).getArgument("path"))
-    then result = this.(UsesStep).getArgument("path")
+    then result = normalizePath(this.(UsesStep).getArgument("path"))
     else result = "GITHUB_WORKSPACE/"
   }
 }
